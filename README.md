@@ -1,1 +1,1 @@
-### Реализация алгоритма Ward Hierarchical Clustering, а также собственного API-сервиса с использованием Flask 
+### Реализация алгоритма Ward Hierarchical Clustering, а также собственного API-сервиса api.py с использованием Flask 
