@@ -1,8 +1,7 @@
 import numpy as np, itertools
 import pandas as pd
 
-np.random.seed(1)
-kot = 0
+np.random.seed(42)
 FreqItems = dict()
 support = dict()
 
@@ -41,9 +40,6 @@ def rules(FreqItems, confidence):
                     lift = float(conf / FreqItems[frozenset(consequent)])
                     if lift >= 1:
                         Rules.append((antecedent, consequent, support, conf, lift))
-
-    print('Found %d Rules ' % (cnt))
-    print(Rules)
     return Rules
 
 
@@ -64,8 +60,6 @@ def getantecendent(FreqItems, confidence):
                     lift = float(conf / FreqItems[frozenset(consequent)])
                     if lift >= 1:
                         ant.append((antecedent))
-
-    print('Print %d attributes' % (cnt))
     return ant
 
 
