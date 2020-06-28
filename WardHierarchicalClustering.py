@@ -91,31 +91,3 @@ def solution(students, num_of_char, dists):
             num = i
     num_of_clusts = len(students) - num
     return cluster_Ward(students, num_of_char, num_of_clusts)
-
-
-# В данном случае sudents оформлено как пример с рандомными данными, в дальнейшем данные будут объёмнее и считываться из файла
-# students = [[45,3],
-#     [109,615],
-#     [415,12],
-#     [24,100],
-#     [3,3],
-#     [8,7],
-#     [71,807],
-#     [670,78],
-#     [700,505],
-#     [8,9],
-#     [45, 78],
-#     [32, 8],
-#     [10, 10]]
-# sc_X = StandardScaler()
-# students = sc_X.fit_transform(students)
-# groups = cluster_Ward(students, len(students[0]), 1)
-# ans = {}
-# for i in set(groups.result()):
-#     ans[i] = []
-# for j in range(len(students)):
-#     ans[groups.get_item(j)].append(j)
-# counter = 0
-# for k in set(groups.result()):
-#     print(counter, ':', *ans[k])
-#     counter += 1
