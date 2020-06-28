@@ -16,23 +16,16 @@ class ExperimentDetail(Resource):
         parser.add_argument("algo")
         parser.add_argument("data")
         params = parser.parse_args()
-        # распаковка входных данных из JSON файла
         if id_exp in experiments:
             return f"Experiment with id {id_exp} already exists", 400
         if params["algo"] != "cluster_Ward":
             return "Algorithm should be cluster_Ward", 400
         if params["data"] is None:
             return "Empty database", 404
-
-        students = {}
-        # обработка входных данных: необходимое помещается в словарь students
-        groups = cluster_Ward(students, len(students[0]), 1)
-
-        experiment = {
-            # приведение выходных данных к нужному формату
-        }
-        experiments[id_exp] = experiment
-        return experiment, 201
+        dataset = params["data"]
+        groups = cluster_Ward(dataset, len(dataset[0]), 1)
+        experiments[id_exp] = groups
+        return groups, 201
 
     def delete(self, id_exp):
         global experiments
