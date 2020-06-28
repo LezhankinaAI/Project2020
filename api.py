@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
-from WardHierarchicalClustering import cluster_Ward
+import WardHierarchicalClustering
 
 experiments = {}
 
@@ -23,7 +23,7 @@ class ExperimentDetail(Resource):
         if params["data"] is None:
             return "Empty database", 404
         dataset = params["data"]
-        groups = cluster_Ward(dataset, len(dataset[0]), 1)
+        groups = WardHierarchicalClustering.cluster_Ward(dataset, len(dataset[0]), 1)
         experiments[id_exp] = groups
         return groups, 201
 
