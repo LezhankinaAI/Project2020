@@ -89,5 +89,5 @@ def solution(students, num_of_char, dists):
         if abs(dists[i] - dists[i + 1]) > max_diff:
             max_diff = abs(dists[i] - dists[i + 1])
             num = i
-    num_of_clusts = len(students) - num
+    num_of_clusts = len(students) - num + 1
     return cluster_Ward(students, num_of_char, num_of_clusts)
